@@ -20,8 +20,9 @@ pipeline {
               withSonarQubeEnv(installationName: 'sonar', credentialsId: 'sonar') {
               sh '''
               cd backend
-              mvn clean verify -DskipTests sonar:sonar -Dsonar.projectKey=student-app 
-                                                        -Dsonar.projectName=student-app
+              mvn clean verify -DskipTests sonar:sonar \
+              -Dsonar.projectKey=student-app \
+              -Dsonar.projectName=student-app \
               '''
              }
             }
