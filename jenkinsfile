@@ -34,6 +34,13 @@ pipeline {
         }
     }
 }
+        stage('Artifact-Deliver') {
+           steps {
+            sh '''
+            aws s3 cp backend/target/*.jar s3://artifact-deliver-bkt/student-app.jar
+            '''
+           }
+        }
         stage('deploy') {
             steps {
               echo "Successfully deploy"
