@@ -22,7 +22,7 @@ pipeline {
               cd backend
               mvn clean verify -DskipTests sonar:sonar \
               -Dsonar.projectKey=student-app \
-              -Dsonar.projectName=student-app \
+              -Dsonar.projectName=student-app
               '''
              }
             }
