@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git Pull') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Shipra-SG/Project-2.1-Three-Tier-application-using-Docker.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh '''
+                cd backend
+                mvn clean package -DskipTests
+                '''
+            }
+        }
+        stage('Test') {
+            steps {
+              echo "Successfully test"
+            }
+        }
+        stage('deploy') {
+            steps {
+              echo "Successfully deploy"
+            }
+        }
+    }
+}
